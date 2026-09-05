@@ -37,12 +37,11 @@ export default function SignInPage() {
   });
 
   if (isError) {
-    console.log(error?.response?.data.detail);
+    console.log(error);
   }
 
   const handleSignInButton = (e) => {
     e.preventDefault();
-
     mutate({ email: form.email, password: form.password });
   };
 
@@ -69,7 +68,10 @@ export default function SignInPage() {
             <CardContent className={"px-8 h-full "}>
               <form
                 className="flex flex-col justify-around h-full "
-                onSubmit={handleSignInButton}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  mutate({ email: form.email, password: form.password });
+                }}
               >
                 <div className="flex flex-col gap-6 mt-3">
                   <div className="grid gap-2">
