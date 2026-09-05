@@ -3,22 +3,11 @@ import PostPage from "@/pages/dashboard/PostPage";
 import ProfilePage from "@/pages/dashboard/ProfilePage";
 import SettingsPage from "@/pages/dashboard/SettingsPage";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 import DashboardPages from "@/contexts/dashboardPages";
-import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
 import {
-  ChartArea,
-  CircleX,
-  CrossIcon,
   HomeIcon,
-  LogOutIcon,
   Menu,
-  MessageCircle,
-  MessageCircleCode,
   MessageCircleIcon,
-  SearchIcon,
   Settings,
   ShieldHalf,
   SquarePen,
@@ -27,11 +16,9 @@ import {
 } from "lucide-react";
 import React, { useContext, useState } from "react";
 import GlobalChatPage from "@/pages/dashboard/GlobalChatPage";
-import { SearchCardComponent } from "@/components/SearchCardComponent";
 
 export default function HeaderDashboard() {
   const [isOpenBar, setIsOpenBar] = useState(false);
-  const [isOpenSearch, setIsOpenSearch] = useState(false);
 
   const { setDashboardPages } = useContext(DashboardPages);
 
@@ -64,7 +51,7 @@ export default function HeaderDashboard() {
   ];
 
   return (
-    <header className="w-full sticky rounded-br-2xl rounded-bl-2xl backdrop-blur-sm h-15 top-0 px-7 md:px-10 lg:px-15 lg:h-16">
+    <header className="w-full sticky z-101 rounded-br-2xl rounded-bl-2xl backdrop-blur-sm h-15 top-0 px-7 md:px-10 lg:px-15 lg:h-16">
       <main className="w-full h-full flex justify-between items-center">
         <div className="flex gap-2 w-full">
           <ShieldHalf className="md:w-8 md:h-8" />
@@ -82,7 +69,6 @@ export default function HeaderDashboard() {
               <Menu className="h-7 w-7" />
             )}
           </div>
-          <SearchCardComponent />
         </div>
 
         <nav className="w-full hidden justify-end gap-3 order-2 items-center md:flex lg:gap-8">

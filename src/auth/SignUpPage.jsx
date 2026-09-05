@@ -11,7 +11,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import UseAxios from "@/utils/useAxios";
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
 import { UserCircle } from "lucide-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -90,6 +89,7 @@ export default function SignUpPage() {
                     onChange={value.onchange}
                     placeholder={value.placeholder}
                     onKeyDown={value.onkeydown}
+                    required
                   />
                 </div>
               );

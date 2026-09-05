@@ -12,7 +12,7 @@ import userIdContext from "@/contexts/userId";
 import UseAxios from "@/utils/useAxios";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { SendHorizonal } from "lucide-react";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { toast } from "sonner";
 
 export default function GlobalChatPage() {
@@ -20,6 +20,8 @@ export default function GlobalChatPage() {
   const { userId } = useContext(userIdContext);
 
   const queryClient = useQueryClient();
+
+  const InputSendMessage = useRef(null);
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["api", "users", "global-chats"],
@@ -89,12 +91,15 @@ export default function GlobalChatPage() {
         onSubmit={(e) => {
           e.preventDefault();
           sendMessage.mutate();
+          InputSendMessage.current.value = "";
         }}
       >
         <Input
           type="text"
           className=" h-10 max-w-6xl"
+          defaultValue=""
           onChange={(e) => setMessageUser(e.target.value)}
+          ref={InputSendMessage}
         />
         <Button
           variant="secondary"
