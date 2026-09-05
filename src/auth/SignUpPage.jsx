@@ -9,11 +9,13 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import UseAxios from "@/utils/useAxios";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import { UserCircle, UserCircle2 } from "lucide-react";
+import { UserCircle } from "lucide-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
 export default function SignUpPage() {
   const [formSignUp, setFormSignUp] = useState({
@@ -23,20 +25,13 @@ export default function SignUpPage() {
   });
 
   const { data, isPending, mutate, isError, error } = useMutation({
-    mutationFn: async ({ username, email, password }) => {
-      const response = await axios.post(`${import.meta.env.VITE_HOST}/signup`, {
-        username,
-        email,
-        password,
-      });
-
-      const responseData = await response.data;
-
-      return responseData;
-    },
-    onSuccess: (data) => {
-      console.log(data);
-    },
+    mutationFn: (from_client) =>
+      UseAxios({
+        url: `${import.meta.env.VITE_HOST}/signup`,
+        data: { ...from_client },
+      }),
+    onSuccess: (data) => toast.success(data.detail),
+    onError: (err) => toast.error(err.response.data.detail),
   });
 
   const fields = [

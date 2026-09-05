@@ -1,18 +1,11 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  Bubble,
-  BubbleContent,
-  BubbleGroup,
-  BubbleReactions,
-} from "@/components/ui/bubble";
+import { Bubble, BubbleContent } from "@/components/ui/bubble";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Marker, MarkerContent } from "@/components/ui/marker";
 import {
   Message,
   MessageAvatar,
   MessageContent,
-  MessageFooter,
 } from "@/components/ui/message";
 import { Separator } from "@/components/ui/separator";
 import userIdContext from "@/contexts/userId";
@@ -57,10 +50,7 @@ export default function GlobalChatPage() {
   }
 
   return (
-    <div
-      className="w-full flex flex-col max-w-6xl h-full gap-6 py-12 "
-      
-    >
+    <div className="w-full flex flex-col max-w-6xl h-full gap-6 py-12 ">
       <h1 className="text-center text-4xl font-bold mb-5">
         Global <span className="text-yellow-400">Chat</span>
       </h1>

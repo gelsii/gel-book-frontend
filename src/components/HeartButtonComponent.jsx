@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import { Button } from "./ui/button";
 import {
   useMutation,
-  useQueries,
-  useQuery,
   useQueryClient,
 } from "@tanstack/react-query";
 import UseAxios from "../utils/useAxios";
 import { toast } from "sonner";
-import { data } from "react-router-dom";
 
 export default function HeartButtonComponent({ post_id, countsHeart }) {
   const [isHeartedUser, setIsHeartedUser] = useState(false);

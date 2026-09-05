@@ -1,7 +1,7 @@
 import userIdContext from "@/contexts/userId";
 import UseAxios from "@/utils/useAxios";
 import { useQuery } from "@tanstack/react-query";
-import { CircleUser, Ellipsis } from "lucide-react";
+import { CircleUser} from "lucide-react";
 import React, { useContext } from "react";
 import { Separator } from "@/components/ui/separator";
 import CardPostsComponent from "../../components/CardPostsComponent";

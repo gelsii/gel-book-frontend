@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import UseAxios from "@/utils/useAxios";
 import CardPostsComponent from "@/components/CardPostsComponent";

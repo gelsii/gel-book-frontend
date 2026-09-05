@@ -1,7 +1,3 @@
-import enabledAuthPageContext from "@/contexts/enabledAuthPage";
-import UseAxios from "@/utils/useAxios";
-import { useQuery } from "@tanstack/react-query";
-import React, { useContext } from "react";
 import { Outlet } from "react-router-dom";
 
 export default function AuthLayout() {

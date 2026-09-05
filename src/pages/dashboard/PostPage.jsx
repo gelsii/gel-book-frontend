@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import {
   ArrowLeftToLine,
-  LogOutIcon,
   MessageSquareWarning,
   UsersRound,
 } from "lucide-react";

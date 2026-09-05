@@ -7,13 +7,10 @@ import { Input } from "@/components/ui/input";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import UseAxios from "@/utils/useAxios";
 import { Button } from "@/components/ui/button";
-import { redirect } from "react-router-dom";
 import { toast } from "sonner";
 
-import { Trash2Icon } from "lucide-react";
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,

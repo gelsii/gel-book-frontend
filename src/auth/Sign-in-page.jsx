@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
@@ -12,8 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { UserIcon } from "lucide-react";
 import { useState } from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { useMutation } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import UseAxios from "@/utils/useAxios";
 
@@ -24,27 +22,19 @@ export default function SignInPage() {
   });
 
   const { isError, error, isPending, mutate, isSuccess } = useMutation({
-    mutationFn: async ({ email, password }) => {
-      const response = await axios.post(
-        `${import.meta.env.VITE_HOST}/signin`,
-        { email, password },
-        {
+    mutationFn: (from_client) =>
+      UseAxios({
+        url: `${import.meta.env.VITE_HOST}/signin`,
+        method: "post",
+        data: { ...from_client },
+        additonally: {
           withCredentials: true,
         },
-      );
-
-      const dataResponse = await response.data;
-
-      return dataResponse;
-    },
+      }),
     onSuccess: () => {
       location.assign("/dashboard");
     },
   });
-
-  // if(userValid.isLoading) {
-  //   return <h1>Loading...</h1>
-  // }
 
   if (isError) {
     console.log(error?.response?.data.detail);

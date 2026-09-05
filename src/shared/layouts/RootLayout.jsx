@@ -1,6 +1,5 @@
 import ContextProvider from "@/components/ContextProvider";
-import React, { useEffect } from "react";
-import { Outlet, redirect } from "react-router-dom";
+import { Outlet} from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 
 export default function RootLayout() {

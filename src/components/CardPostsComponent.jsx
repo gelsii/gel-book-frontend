@@ -11,18 +11,11 @@ import {
 import {
   CircleUser,
   Ellipsis,
-  Heart,
-  MessageCircle,
-  Send,
-  SendHorizonal,
-  UserIcon,
 } from "lucide-react";
 import DropDownMenuPost from "@/components/DropDownMenuPost";
 
 import HeartButtonComponent from "@/components/HeartButtonComponent";
-import UseAxios from "@/utils/useAxios";
 import CardCommentComponent from "./CardCommentComponent";
-import { useQuery } from "@tanstack/react-query";
 
 export default function CardPostsComponent({ data }) {
   return (
