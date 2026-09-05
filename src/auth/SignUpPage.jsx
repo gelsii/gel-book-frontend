@@ -28,6 +28,7 @@ export default function SignUpPage() {
     mutationFn: (from_client) =>
       UseAxios({
         url: `${import.meta.env.VITE_HOST}/signup`,
+        method: "post",
         data: { ...from_client },
       }),
     onSuccess: (data) => toast.success(data.detail),
@@ -60,10 +61,6 @@ export default function SignUpPage() {
       onkeydown: (e) => e.key === "Enter" && handleSignUpButton(),
     },
   ];
-
-  if (isError) {
-    console.log(error?.response);
-  }
 
   const handleSignUpButton = (e) => {
     e.preventDefault();
